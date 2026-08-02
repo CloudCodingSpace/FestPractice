@@ -4,7 +4,7 @@ Goal:
 Build a Java application where users can rent and return vehicles.
 
 Features:
-- Vehicle management (Car, Bike, Truck)
+- Vehicle management (Car, Bike)
 - Customer management
 - Rent / Return vehicles
 - Search vehicles
