@@ -155,6 +155,57 @@ public class FinalTest {
         System.out.println("The number of double letters are " + c);
         */
 
+        // Word sentence
+        System.out.println("Enter a sentence :- ");
+        String s = sc.nextLine().trim();
+
+        if(s.isEmpty()) {
+            System.out.println("You must enter a sentence!");
+            sc.close();
+            return;
+        }
+
+        String ls = s.toLowerCase();
+
+        boolean a = false;
+        int c = 1;
+        for(int i = 0; i < ls.length(); i++) {
+            if((ls.charAt(i) > 'z') || (ls.charAt(i) < 'a')) {
+                if(a)
+                    continue;
+                a = true;
+                c++;
+            } else {
+                a = false;
+            }
+        }
+
+        String[] words = new String[c];
+        a = false;
+        c = 0;
+        int idx = 0;
+
+        for(int i = 0; i < ls.length(); i++) {
+            if((ls.charAt(i) > 'z') || (ls.charAt(i) < 'a')) {
+                if(a)
+                    continue;
+                a = true;
+                words[c] = s.substring(idx, i);
+                idx = i + 1;
+                c++;
+            } else {
+                a = false;
+            }
+        }
+
+        if((ls.charAt(ls.length() - 1) <= 'z') && (ls.charAt(ls.length() - 1) >= 'a'))
+            words[c++] = s.substring(idx, s.length());
+
+        System.out.println("All the words in the sentence :- ");
+        for(int i = 0; i < c; i++) {
+            System.out.println(words[i]);
+        }
+
         sc.close();
     }
 }
